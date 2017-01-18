@@ -18,13 +18,14 @@ var Duberex = React.createClass({
       location: undefined,
       temp: undefined
     });
-
-
+var aa = "";
 
     duberex.getTemp(location).then(function (temp) {
 
+    that.handleProducts(temp);
+
       that.setState({
-        location: location,
+        location: temp,
         temp: temp,
         isLoading: false
       });
@@ -34,9 +35,18 @@ var Duberex = React.createClass({
         errorMessage: e.message
       });
     });
+    
 
-    var products =  localStorage.getItem("products");
-    console.log(" products ",products);
+    var products =  sessionStorage.getItem("products");
+    console.log(" products 123 ",products);
+
+  },
+  handleProducts(temp){
+    console.log("temp", temp);
+        duberex.getProduct(temp).then(function (data) {
+          console.log("Big Dataaa",data);
+        });
+
   },
   componentDidMount: function () {
     var location = this.props.location.query.location;
