@@ -1,8 +1,22 @@
 var React = require('react');
 
-var DuberexMessage = ({temp, location}) => {
+var DuberexMessage = ({temp, location,products }) => {
+	
+var html = '';
+	if(products){
+		console.log("dubermessage ",products);
+		for (var i in products ){
+			html += '<li>'+products[i].name+ '</li>';
+		}
+	}
+
   return (
-    <h3 className="text-center">It's it {temp} in {location}.</h3>
+  	<div>
+
+  	<ul dangerouslySetInnerHTML={{__html: html}}></ul>
+  	
+
+  	</div>
   )
 };
 

@@ -7,7 +7,8 @@ var duberex = require('duberex');
 var Duberex = React.createClass({
   getInitialState: function () {
     return {
-      isLoading: false
+      isLoading: false,
+      products:undefined
     }
   },
   handleSearch: function (location) {
@@ -37,14 +38,29 @@ var aa = "";
     });
     
 
-    var products =  sessionStorage.getItem("products");
-    console.log(" products 123 ",products);
 
   },
   handleProducts(temp){
-    console.log("temp", temp);
+    var that = this;
         duberex.getProduct(temp).then(function (data) {
-          console.log("Big Dataaa",data);
+        
+          var within20km =[],
+              within50d =[];
+           data.map(function(item){
+          var dist = item.distance;
+          if (dist < 20){
+          within20km.push(item.products);
+          }
+
+          });
+         within20km[0].map(function(item){
+           
+          var price = item.price
+          if (price < 50){
+            within50d.push(item);
+          }
+          });
+           that.setState({products:within50d});
         });
 
   },
@@ -53,27 +69,26 @@ var aa = "";
 
 
     if (location && location.length > 0) {
-          console.log(" location componentdidmount ", location);
       this.handleSearch(location);
       window.location.hash = '#/';
     }
   },
   componentWillReceiveProps: function (newProps) {
     var location = newProps.location.query.location;
-    console.log(" location componentWillReceiveProps ",location);
     if (location && location.length > 0) {
       this.handleSearch(location);
       window.location.hash = '#/';
     }
   },
   render: function () {
-    var {isLoading, temp, location, errorMessage} = this.state;
+    var {isLoading, temp, location, products, errorMessage} = this.state;
+    console.log(" products x ", products );
 
     function renderMessage () {
       if (isLoading) {
         return <h3 className="text-center">Fetching Products...</h3>;
       } else if (temp && location) {
-        return <DuberexMessage temp={temp} location={location}/>;
+        return <DuberexMessage temp={temp} location={location} products={products}/>;
       }
     }
 
