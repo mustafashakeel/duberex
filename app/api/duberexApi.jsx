@@ -28,10 +28,10 @@ var that = this ;
         throw new Error(res.data.message);
       } else {
 
-        var coordinates = res.data.results[0].geometry.location;
-        var latitude = coordinates.lat;
-        var longitude = coordinates.lng;
-        var searchUrl = `${PRODUCTS_GEO_SEARCH}?gps[]=${latitude}&gps[]=${longitude}&searchText=zoot`;
+        var coordinates = res.data.results[0].geometry.location,
+            latitude = coordinates.lat,
+            longitude = coordinates.lng,
+            searchUrl = `${PRODUCTS_GEO_SEARCH}?gps[]=${latitude}&gps[]=${longitude}&searchText=zoot`;
          return searchUrl;
  
       }

@@ -15,14 +15,18 @@ var lis = [];
 		let pic =	products[i].picture_images.square;
 		let name = products[i].name;
 		let price = products[i].price;
-		console.log("price ",price);
+		let city = products[i].processor.city;
+		let category = products[i].category;
+		console.log('city',city);
 
 
 
-		lis.push(<div key={i}><div className="row"><div className="large-10 columns">
+		lis.push(<div key={i}><div className="row"><div className="large-10 columns myCards">
 			<div className="card"><div className="column large-4"><img src={pic} /></div>
 			<span className="column large-8">{name}</span><span className="subheader">Price : {price}</span>
-	
+			<span className="subheader">Category : {category}</span>
+
+			<span className="subheader">City : {city}</span>
 			</div></div></div></div>);
 			
 

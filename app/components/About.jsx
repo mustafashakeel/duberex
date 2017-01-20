@@ -5,7 +5,7 @@ var About = (props) => {
     <div>
       <h1 className="text-center page-title">About</h1>
       <p>
-       This is a Test from Duberex
+       This is a About
       </p>
      
      

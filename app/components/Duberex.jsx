@@ -19,7 +19,6 @@ var Duberex = React.createClass({
       location: undefined,
       temp: undefined
     });
-var aa = "";
 
     duberex.getTemp(location).then(function (temp) {
 
@@ -36,9 +35,6 @@ var aa = "";
         errorMessage: e.message
       });
     });
-    
-
-
   },
   handleProducts(temp){
     var that = this;
@@ -51,9 +47,8 @@ var aa = "";
           if (dist < 20){
           within20km.push(item.products);
           }
-
-          });
-         within20km[0].map(function(item){
+        });
+        within20km[0].map(function(item){
            
           var price = item.price
           if (price < 50){

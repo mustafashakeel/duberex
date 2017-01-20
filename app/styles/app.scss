@@ -10,11 +10,42 @@ $title-color: #555;
 input[type=search] {
   box-shadow: none;
 }
-.mycards{
+.myCards{
 	
-	background:yellow;
+	border: grey dotted;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
 }
 .myForm {
 	width: 50%;
     margin: auto;
+}
+.myMenu{
+	display:none;
+	position:absolute;
+	right: 5px;
+    top: 50px;
+}
+.rightMenu{
+	display:inline-flex;
+}
+.getProducts {
+	background-color:#2b8425;
+}
+a{
+	color:#2b8425;
+}
+a:hover{
+	color:#1a5216 ;
+}
+a:visited {
+	color:#1a5216;
+}
+a:active {
+	color:#1a5216;
+}
+
+.getProducts:hover {
+	background-color:#1a5216;
 }
