@@ -98,7 +98,10 @@ var Duberex = React.createClass({
     return (
       <div>
         <div>
-        <h1 className="text-center page-title">Get Products</h1>
+        <span className="button-logo">
+          <span className="duber-logo"></span>
+          <span className="test-tag">test</span>
+        </span>
         <DuberexForm onSearch={this.handleSearch}/>
         </div>
         {renderMessage()}
