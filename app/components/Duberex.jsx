@@ -87,8 +87,8 @@ var aa = "";
     function renderMessage () {
       if (isLoading) {
         return <h3 className="text-center">Fetching Products...</h3>;
-      } else if (temp && location) {
-        return <DuberexMessage temp={temp} location={location} products={products}/>;
+      } else if (products) {
+        return <DuberexMessage  products={products}/>;
       }
     }
 
@@ -102,8 +102,10 @@ var aa = "";
 
     return (
       <div>
+        <div>
         <h1 className="text-center page-title">Get Products</h1>
         <DuberexForm onSearch={this.handleSearch}/>
+        </div>
         {renderMessage()}
         {renderError()}
       </div>

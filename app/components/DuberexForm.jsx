@@ -13,7 +13,7 @@ var DuberexForm = React.createClass({
   },
   render: function () {
     return (
-        <div>
+        <div className="myForm">
           <form onSubmit={this.onFormSubmit}>
             <input type="search" ref="location" placeholder="Search products by Zip Code"/>
             <button className="button expanded hollow">Get Products</button>
